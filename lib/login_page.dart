@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'home_page.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -30,64 +32,75 @@ class _LoginPageState extends State<LoginPage> {
               child: Form(
                 key: _formKey,
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    TextFormField(
-                      decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: 'Digite seu login aqui',
-                          labelText: 'Login'),
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter some text';
-                        }
-                        return null;
-                      },
+                  children: [
+                    Image.asset(
+                      "images/officialTI.webp",
+                      width: 300,
+                      height: 200,
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    TextFormField(
-                      obscureText: visibility,
-                      decoration: InputDecoration(
-                        border: const OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blue),
-                        ),
-                        hintText: 'Digite sua senha aqui',
-                        labelText: 'Senha',
-                        suffixIcon: IconButton(
-                          icon: Icon(visibility
-                              ? Icons.visibility
-                              : Icons.visibility_off),
-                          onPressed: () {
-                            setState(() {
-                              visibility = !visibility;
-                            });
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        TextFormField(
+                          decoration: const InputDecoration(
+                              border: OutlineInputBorder(),
+                              hintText: 'Digite seu login aqui',
+                              labelText: 'Login'),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Login incorreto ou faltando';
+                            }
+                            return null;
                           },
                         ),
-                      ),
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter some text';
-                        }
-                        return null;
-                      },
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text('Processing data'),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        TextFormField(
+                          obscureText: visibility,
+                          decoration: InputDecoration(
+                            border: const OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.blue),
                             ),
-                          );
-                        }
-                      },
-                      child: const Text('Submit'),
+                            hintText: 'Digite sua senha aqui',
+                            labelText: 'Senha',
+                            suffixIcon: IconButton(
+                              icon: Icon(visibility
+                                  ? Icons.visibility
+                                  : Icons.visibility_off),
+                              onPressed: () {
+                                setState(() {
+                                  visibility = !visibility;
+                                });
+                              },
+                            ),
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter some text';
+                            }
+                            return null;
+                          },
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        ElevatedButton(
+                          onPressed: () {
+                            if (_formKey.currentState!.validate()) {
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute<void>(
+                                  builder: (BuildContext context) =>
+                                      const HomePage(),
+                                ),
+                              );
+                            }
+                          },
+                          child: const Text('Submit'),
+                        ),
+                      ],
                     ),
                   ],
                 ),
