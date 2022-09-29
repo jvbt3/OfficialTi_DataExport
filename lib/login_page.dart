@@ -49,7 +49,7 @@ class _LoginPageState extends State<LoginPage> {
                               labelText: 'Login'),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return 'Login incorreto ou faltando';
+                              return 'Inserir login';
                             }
                             return null;
                           },
@@ -78,7 +78,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return 'Please enter some text';
+                              return 'Inserir senha';
                             }
                             return null;
                           },
@@ -98,6 +98,8 @@ class _LoginPageState extends State<LoginPage> {
                               );
                             }
                           },
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.red),
                           child: const Text('Submit'),
                         ),
                       ],
