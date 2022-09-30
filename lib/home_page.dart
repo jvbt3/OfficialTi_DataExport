@@ -78,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                           padding: const EdgeInsets.all(10.0),
                           child: Card(
                               shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15.0)),
+                                  borderRadius: BorderRadius.circular(18.0)),
                               child: Padding(
                                 padding: const EdgeInsets.all(10.0),
                                 child: Text(conversa[index]),
@@ -89,6 +89,7 @@ class _HomePageState extends State<HomePage> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
+                    textInputAction: TextInputAction.newline,
                     controller: mensagemController,
                     decoration: InputDecoration(
                         border: const OutlineInputBorder(

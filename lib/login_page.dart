@@ -43,6 +43,7 @@ class _LoginPageState extends State<LoginPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         TextFormField(
+                          textInputAction: TextInputAction.next,
                           decoration: const InputDecoration(
                               border: OutlineInputBorder(),
                               hintText: 'Digite seu login aqui',
@@ -58,6 +59,7 @@ class _LoginPageState extends State<LoginPage> {
                           height: 10,
                         ),
                         TextFormField(
+                          textInputAction: TextInputAction.done,
                           obscureText: visibility,
                           decoration: InputDecoration(
                             border: const OutlineInputBorder(
